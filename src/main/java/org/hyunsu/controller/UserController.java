@@ -6,7 +6,7 @@ import org.hyunsu.dto.UserSimpleResponseDto;
 import org.hyunsu.service.UserService;
 //패키지명이 다를 시 본인 패키지명으로 작성해야 오류가 안납니다.
 
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Autowired; //생성자를 통한 주입
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -19,17 +19,5 @@ public class UserController {
     @Autowired
     public UserController(UserService userService) {
         this.userService = userService;
-    }
-
-    @PostMapping("/auth/register")
-    public ResponseEntity<UserSimpleResponseDto> registerUser(@RequestBody UserRegistrationRequestDto userRegistrationRequestDto) {
-        User user = new User(
-                userRegistrationRequestDto.getUsername(),
-                userRegistrationRequestDto.getPassword(),
-                userRegistrationRequestDto.getName()
-        );
-        UserSimpleResponseDto savedUser = userService.saveUser(user);
-
-        return ResponseEntity.ok(savedUser);
     }
 }
