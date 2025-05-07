@@ -1,4 +1,4 @@
-package org.hyunsu.dto;
+package org.hyunsu.dto.response;
 
 import lombok.Getter;
 

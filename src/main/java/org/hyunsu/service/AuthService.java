@@ -1,21 +1,22 @@
-package org.hyunsu.sevice;
+package org.hyunsu.service;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
 import org.hyunsu.domain.User;
-import org.hyunsu.dto.UserSimpleResponseDto;
+import org.hyunsu.dto.response.UserSimpleResponseDto;
 import org.hyunsu.dto.request.LoginRequestDto;
 import org.hyunsu.repository.UserRepository;
+import org.hyunsu.service.s.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
 public class AuthService {
-    private final org.hyunsu.service.UserService userService;
+    private final UserService userService;
     private final UserRepository userRepository;
 
     @Autowired
-    public AuthService(org.hyunsu.service.UserService userService, UserRepository userRepository) {
+    public AuthService(UserService userService, UserRepository userRepository) {
         this.userService = userService;
         this.userRepository = userRepository;
     }

@@ -1,12 +1,12 @@
 package org.hyunsu.controller;
 
 import jakarta.servlet.http.HttpServletRequest;
-import org.hyunsu.service.UserService;
-import org.hyunsu.sevice.AuthService;
 import org.hyunsu.domain.User;
-import org.hyunsu.dto.UserRegistrationRequestDto;
-import org.hyunsu.dto.UserSimpleResponseDto;
+import org.hyunsu.dto.response.UserRegistrationRequestDto;
+import org.hyunsu.dto.response.UserSimpleResponseDto;
 import org.hyunsu.dto.request.LoginRequestDto;
+import org.hyunsu.service.AuthService;
+import org.hyunsu.service.s.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;

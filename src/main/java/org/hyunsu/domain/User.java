@@ -10,9 +10,10 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
-@NoArgsConstructor
+@NoArgsConstructor // 밑에 nullable = false가 있기에 @RequiredArgsConstructor나 @AllArgsConstructor로 바꿔야하지 않을까?
 @Getter
 @Setter
 public class User {
@@ -38,19 +39,19 @@ public class User {
     @Column(name = "image_url")
     private String imageUrl;
 
-//    @OneToMany(mappedBy = "user")
-//    private List<Post> posts;
-//
-//    @OneToMany(mappedBy = "user")
-//    private List<Like> likes;
-//
-//    @OneToMany(mappedBy = "follower")
-//    private List<Follow> followings;
-//
-//    @OneToMany(mappedBy = "following")
-//    private List<Follow> followers;
+    @OneToMany(mappedBy = "user")
+    private List<Post> posts;
 
-    public User(String username, String password, String name) {
+    //@OneToMany(mappedBy = "user")
+    //private List<Like> likes;
+
+    //@OneToMany(mappedBy = "follower")
+    //private List<Follow> followings;
+
+    //@OneToMany(mappedBy =  "following")
+    //private List<Follow> followers;
+
+    public User(String username, String password, String name) { //생성자
         this.username = username;
         this.password = password;
         this.name = name;
